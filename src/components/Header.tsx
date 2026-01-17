@@ -10,10 +10,10 @@ function Header() {
                     <div className="h-8 w-8 bg-[#5148E7] flex justify-center items-center rounded-md mr-2">
                         <GraduationCap strokeWidth={2} fill="white" size={24}/>
                     </div>
-                    <h1 className="">CA MONK</h1>
+                    <h1 className="font-header font-bold">CA MONK</h1>
                 </div>
                 <div >
-                    <ul className="flex gap-6 list-none">
+                    <ul className="gap-6 list-none hidden md:flex">
                         <li>Tools</li>
                         <li>Practice</li>
                         <li>Events</li>

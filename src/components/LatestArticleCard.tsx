@@ -11,7 +11,7 @@ import { Badge } from "./ui/badge"
 function LatestArticleCard() {
     return (
         <div className="mb-4">
-            <Card className="w-87.5 border-l-4 border-l-[#524AEA] gap-2">
+            <Card className="max-w-2xl border-l-4 border-l-[#524AEA] gap-2">
                 <CardHeader>
                     <div className="flex justify-between items-center text-xs">
                         <div className="flex items-center gap-2 text-[#5249E2]">

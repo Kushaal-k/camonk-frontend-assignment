@@ -10,9 +10,9 @@ function App() {
       <Header></Header>
       <HeroComp></HeroComp>
       
-      <div className='flex'>
-      <LatestArticle />
-      <Blog />
+      <div className='flex flex-col md:flex-row'>
+        <LatestArticle />
+        <Blog />
       </div>
     </>
   )
