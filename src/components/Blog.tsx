@@ -32,21 +32,23 @@ function Blog() {
 					<ShareButton />
 				</CardHeader>
 				<CardContent>
-					<div className='grid grid-cols-[1fr_auto_1fr_auto_1fr] bg-gray-50 border rounded-lg overflow-hidden'>
+					<div className='flex flex-col md:grid md:grid-cols-[1fr_auto_1fr_auto_1fr] bg-gray-50 border rounded-lg overflow-hidden'>
 						<div className='flex flex-col items-center justify-center p-4 text-center'>
 							<div className='text-gray-400 text-xs font-bold'>
 								CATEGORY
 							</div>
 							<div className='font-semibold text-sm pt-1'>Fintech & AI</div>
 						</div>
-						<Separator orientation='vertical' />
+						<Separator orientation='vertical' className="hidden md:block" />
+						<Separator orientation='horizontal' className="md:hidden" />
 						<div className='flex flex-col items-center justify-center p-4 text-center'>
 							<div className='text-gray-400 text-xs font-bold'>
 								READ TIME
 							</div>
 							<div className='font-semibold text-sm pt-1'>5 mins</div>
 						</div>
-						<Separator orientation='vertical' />
+						<Separator orientation='vertical' className="hidden md:block" />
+						<Separator orientation='horizontal' className="md:hidden" />
 						<div className='flex flex-col items-center justify-center p-4 text-center'>
 							<div className='text-gray-400 text-xs font-bold'>DATE</div>
 							<div className='font-semibold text-sm pt-1'>Oct 24, 2023</div>
@@ -97,7 +99,7 @@ function Blog() {
 							verification of transactions.
 						</div>
 						<Separator orientation='horizontal' className='my-4' />
-						<div className='flex flex-row flex-wrap items-center gap-12'>
+						<div className='flex flex-row flex-wrap items-center gap-6 md:gap-12'>
 							<div className='flex flex-row gap-4 items-center justify-center'>
 								<Avatar className='h-10 w-10'>
 									<AvatarImage
