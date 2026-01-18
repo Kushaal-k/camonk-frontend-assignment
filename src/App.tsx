@@ -1,25 +1,20 @@
-import './App.css'
-import Blog from './components/Blog'
-import Header from './components/Header'
-import HeroComp from './components/HeroComp'
-import LatestArticle from './components/LatestArticle'
-
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import BlogCard from "./components/BlogCard";
+import MainLayout from "./pages/MainLayout";
 function App() {
-  return (
-    <>
-      <Header></Header>
-      <HeroComp></HeroComp>
-      
-      <div className='flex flex-col md:flex-row max-w-7xl mx-auto'>
-        <div className='md:w-1/3 lg:w-1/4'>
-          <LatestArticle />
-        </div>
-        <div className='md:w-2/3 lg:w-3/4'>
-          <Blog />
-        </div>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<Header />
+
+			<Routes>
+				<Route element={<MainLayout />}>
+          <Route path="/" element={<BlogCard/>} />
+          <Route path="/blogs/:blogId" element={<BlogCard/>} />
+        </Route>
+			</Routes>
+		</>
+	);
 }
 
-export default App
+export default App;

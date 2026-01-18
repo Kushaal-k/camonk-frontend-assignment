@@ -25,6 +25,12 @@ function LatestArticle() {
     );
     }
 
+    if(isError){
+        return (
+            <div className="bg-red-300 text-red-700 rounded-2xl p-4 mt-4">Error while loading all the posts.</div>
+        )
+    }
+
 	return (
 		<div className='flex flex-col'>
 			<div className='text-xl font-bold ml-4 my-6'>Latest Articles</div>
