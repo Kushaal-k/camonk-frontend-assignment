@@ -14,18 +14,25 @@ import { useQuery } from "@tanstack/react-query";
 import { getBlogById, type Blog } from "../api/blogs";
 import BlogCardSkeleton from "./BlogCardSkeleton";
 
-function BlogCard() {
-	const {blogId} = useParams<{blogId: string}>();
-	console.log("blogId from URL:", blogId);
+type BlogCardProps = {
+	id?: number;
+	initialBlog?: Blog;
+}
 
-	const id = Number(blogId)
-    const { data: blog, isLoading } = useQuery({
-        queryKey: ["blog", id],
-        queryFn: () => getBlogById(id),
-		enabled: Number.isFinite(id),
-    })
+function BlogCard({ id: propId, initialBlog }: BlogCardProps = {}) {
+	const { blogId } = useParams<{ blogId: string }>();
 
-	if(isLoading) return (
+	const id = propId ?? Number(blogId);
+
+	const { data: fetchedBlog, isLoading } = useQuery({
+		queryKey: ["blog", id],
+		queryFn: () => getBlogById(id),
+		enabled: !initialBlog && Number.isFinite(id),
+	})
+
+	const blog = initialBlog ?? fetchedBlog;
+
+	if (isLoading && !blog) return (
 		<BlogCardSkeleton />
 	)
 
@@ -42,7 +49,7 @@ function BlogCard() {
 					</div>
 					<div className='text-xs flex gap-3 px-6 py-4 items-center'>
 						<div className='text-[#524AEA] font-bold'>{blog?.category?.[0]}</div>
-						<Circle size={6} className="text-gray-400"/>
+						<Circle size={6} className="text-gray-400" />
 						<div className='text-gray-400'>5 min read</div>
 					</div>
 					<CardTitle className='px-6 pb-4 text-4xl font-extrabold'>
@@ -78,7 +85,7 @@ function BlogCard() {
 						<div className=' text-gray-700 text-sm leading-relaxed'>
 							{blog?.description}
 						</div>
-						
+
 						<div className='leading-relaxed'>
 							{blog?.content}
 						</div>
@@ -101,8 +108,8 @@ function BlogCard() {
 								</div>
 							</div>
 							<div className="flex gap-4 ml-auto">
-								<ThumbsUp/>
-                                <MessageSquare />
+								<ThumbsUp />
+								<MessageSquare />
 							</div>
 						</div>
 					</CardDescription>

@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import BlogCard from "./components/BlogCard";
 import MainLayout from "./pages/MainLayout";
+import Home from "./pages/Home";
+
 function App() {
 	return (
 		<>
@@ -9,9 +11,9 @@ function App() {
 
 			<Routes>
 				<Route element={<MainLayout />}>
-          <Route path="/" element={<BlogCard/>} />
-          <Route path="/blogs/:blogId" element={<BlogCard/>} />
-        </Route>
+					<Route path="/" element={<Home />} />
+					<Route path="/blogs/:blogId" element={<BlogCard />} />
+				</Route>
 			</Routes>
 		</>
 	);
