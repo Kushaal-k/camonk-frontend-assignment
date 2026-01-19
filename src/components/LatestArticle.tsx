@@ -32,9 +32,9 @@ function LatestArticle() {
     }
 
 	return (
-		<div className='flex flex-col'>
-			<div className='text-xl font-bold ml-4 my-6'>Latest Articles</div>
-			<div className='m-4 flex flex-col'>
+		<div className='flex flex-col p-4 md:p-0 md:pl-4 md:mr-8'>
+			<div className='text-xl font-bold my-6'>Latest Articles</div>
+			<div className='flex flex-col gap-4'>
                 {latestBlogs.map((blog) => (
                     <LatestArticleCard key={blog.id} blog={blog}/>
                 ))}

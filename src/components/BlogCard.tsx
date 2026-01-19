@@ -37,7 +37,7 @@ function BlogCard({ id: propId, initialBlog }: BlogCardProps = {}) {
 	)
 
 	return (
-		<div className='w-full my-6 mx-4'>
+		<div className='my-6'>
 			<Card className='pt-0 '>
 				<CardHeader className='p-0 pt-0'>
 					<div className='h-65 overflow-hidden rounded-t-xl'>
@@ -52,7 +52,7 @@ function BlogCard({ id: propId, initialBlog }: BlogCardProps = {}) {
 						<Circle size={6} className="text-gray-400" />
 						<div className='text-gray-400'>5 min read</div>
 					</div>
-					<CardTitle className='px-6 pb-4 text-4xl font-extrabold'>
+					<CardTitle className='px-6 pb-4 text-2xl md:text-4xl font-extrabold'>
 						{blog?.title.toUpperCase()}
 					</CardTitle>
 					<ShareButton />
